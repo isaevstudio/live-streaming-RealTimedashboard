@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Raleway:wght@700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+body {
+    background-color: #F0F0F0 !important;
+}
+.navbar {
+    background-color: rgb(250, 250, 250);
+    height: 64px;
+    padding: 0px !important;
+}
+.navbar-name-stream {
+    color: red;
+    margin:0;
+}
+.navbar-name-stream {
+    padding-left:10%;
+    margin-bottom:0;
+    font-family:'Raleway', sans-serif;
+    box-sizing:border-box;
+    outline: 0 !important;
+}
+.name-navbar {
+    margin-bottom: 0% !important;
+}
+.navbar-nav {
+    padding-right: 1%;
+    margin-right: 2%;
+}
+.div-outer{
+    width: 100%;
+    height: 100%;
+    display:flex;
+}
+#outer-child-left {
+    width: 100%;
+    /* margin-left: 2%; */
+}
+#outer-child-left2{
+    background-color: brown;
+    width:256px;
+    height: 93.5vh;
+}
+#outer-child-right {
+    width:100%;
+}
+.div-inner-leftandright {
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 1%;
+    height: 90vh;
+    overflow: scroll;
+}
+#allfigures {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2%;
+    margin-left: 2%;
+    margin-top: 1px;
+}
+.div-right {
+    margin-right: 2%;
+    margin-top: 1px;
+    /* height: 115%; */
+}
+.creatingspace{
+    margin-top: 1.5%;
+    overflow-x:hidden;
+    overflow-y: scroll;
+    width:100%;
+    border-top: solid 2px lightgrey;
+    border-left: solid 2px lightgrey;
+    border-right: solid 2px lightgrey;
+}
+.table{
+    transition: 0.3s;
+    border-radius:0px;
+    width: 100%; 
+}
+.boxchart1, .boxchart2, .boxchart3 {
+    box-shadow: 0px 1px 4px 0 rgba(0,0,0, 0.2);
+    transition: 0.3s;
+    border-radius:0px;
+    width: 49%;
+    height: 90%;
+}
+.boxchart1, .boxchart2 {
+    margin-bottom: 2.5%;
+}
+.boxchart1{
+    width: 100%;
+    margin-top: 15px;
+}
+.boxchart1text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.down{
+    margin-top: 15px;
+}
+.twosmallerplots{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.paragraph-chart {
+    padding-top:1%;
+    padding-left:2%;
+    padding-bottom:0;
+}
+li {
+    list-style: none;
+}
+.paragraph-chart1, .paragraph-chart11{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    vertical-align: middle; 
+    margin-left:25px;
+    margin-right:25px;
+}
+:hover.paragraph-chart1, :hover.paragraph-chart11{
+    background-color: rgb(237, 237, 237);
+}
+.paragraph-chart11 {
+    border-right: none;
+}
+.paragraph-chart1, .paragraph-chart2, .paragraph-chart3, .paragraph-chart11 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    vertical-align: middle;
+    padding: 20px;
+}
+.paragraph-chart-watch{
+    font-size: 20px;
+    font-weight: 320;
+}
+.paragraph_chart_watch_backend, .paragraph_chart_peak_backend, #paragraph_chart_unique_backend2 {
+    font-size: 25px;
+    font-weight: 500;
+    padding-left: 10px;
+}
+.paragraph_chart_unique_backend, .paragraph_chart_pause_backend{
+    margin-left: 10px;
+    }
+.watching-number, .pause-number{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    vertical-align: middle;
+}
+.paragraph-chart-watch{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.chartOnline, .chartOffline, .chartUniqueOnline {
+    padding-left:2%;
+    padding-bottom:1%;
+    padding-right:2%;
+}
+table {
+    /* height:100vh; */
+    /* height:100%; */
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+.th {
+    align-items: center;
+    text-align: center;
+    padding: 5% 0px 5% 0px;
+}
+tr {
+    border-style: none !important;
+}
+.tr-hover:hover{
+    background-color: rgb(245, 245, 245);
+    transform: scale(1.01);
+}
+#fas-online {
+    font-size:12px;
+    color:green;
+}
+#fas-offline {
+    font-size:12px;
+    color:red;
+}
+#online-status {
+    color:black; 
+    display:inline;
+    font-size: 8px;
+    text-align: center !important;
+}
+#offline-status {
+    color:black; 
+    font-size: 8px;
+    text-align: center !important;
+}
+#header-table{
+    font-size: 17px;
+    text-align: center !important;
+    margin-bottom: 3%;
+    margin-top: 3%;
+    font-weight: 450;
+}
+#other-text {
+    font-size: 15px;
+    font-weight: 300;
+    margin: 1.5%;
+    text-align: center !important;
+}
+th {
+    /* position: sticky; */
+    background-color: rgba(240,240,240);
+    z-index: 2;
+    top: 0;
+}
+.cards{
+    /* border: solid 3px red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 10px;
+
+}
+.box1, .box2{
+    width: 49%;
+    box-shadow: 0px 1px 4px 0 rgba(0,0,0, 0.2);
+    margin-bottom: 5px;
+    height: 100px;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.box1{
+    margin-right: 23px;
+}
+
+
+@media all and (max-width:900px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    .div-left2{
+        display: none;
+    }
+    .twosmallerplots{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .boxchart1, .boxchart2, .boxchart3 {
+        box-shadow: 0px 1px 4px 0 rgba(0,0,0, 0.2);
+        transition: 0.3s;
+        border-radius:0px;
+        width: 100%;
+    }
+    .chartOffline, .chartOnline, .chartUniqueOnline{
+        height: 150px;
+    }
+    #text_card1, #text_card2{
+        font-size: 12px;
+        font-weight: 250;
+    }
+    .box1, .box2{
+        text-align: center;
+        align-items: center;
+        vertical-align: middle;
+        height: 90px;
+    }
+    .box1{
+        padding-top: 5px;
+    }
+    .box2{
+        padding-top: 10px;
+    }
+    #text_card1{
+        padding-top: 5px;
+    }
+    #text_card2{
+        padding-bottom: 5px;
+    }
+    .cards{
+        margin-top: 10px;
+    }
+    .paragraph-chart-watch{
+        font-size: 10px;
+        font-weight: 220;
+        width: 60px;
+        padding: 0px;
+    }
+    .paragraph_chart_watch_backend, .paragraph_chart_peak_backend, #paragraph_chart_unique_backend2 {
+        font-size: 13px;
+        font-weight: 300;
+    }
+    .paragraph-chart1, .paragraph-chart11, .paragraph-chart2, .paragraph-chart3{
+        padding: 0px;
+        margin: 0px;
+    }
+    .paragraph-chart-pause, .paragraph_chart_pause_backend, .paragraph_chart_unique_backend{
+        padding:5px;
+        padding-right: 0px;
+        padding-left: 10px;
+        font-size: 10px;
+        font-weight: 220;
+    }
+    .paragraph_chart_pause_backend, .paragraph_chart_unique_backend{
+        padding: 0px;
+        font-weight: 300;
+    }
+}

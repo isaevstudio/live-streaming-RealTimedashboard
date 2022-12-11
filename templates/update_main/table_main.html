@@ -1,0 +1,21 @@
+<div class="containertable" id='containertable'>
+    <div class="content">
+        <ul>
+            <div class="title", id='scrolling'>
+                <li class="alignheader lione">Название</li>
+                <li class="alignheader litwo">Смотрят</li>
+                <li class="alignheader lithree">Среднее длительность</li>
+            </div>
+
+            {% for datav in alldata.values %}
+                <a href="/stat/{{id}}/session/{{datav[0]}}" id="undata-link"> 
+                <div class="undata", id='scrolling'>
+                    <li class="aligncontenttable1 datalione"><span class='col1'><img src="../../static/test.png" alt="test" width="100" height=80%></span><span class="col1-2">Сессионный зал: {{ datav[0] }}</span></li>
+                    <li class="aligncontenttable2 datalitwo"><span>{{ datav[1] }}</span></li>
+                    <li class="aligncontenttable3 lithree"><span>{{ datav[2] }}</span></li>
+                </div>
+                </a>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/57b1574778.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../static/index_main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {% if title %}
+        <title>Dashboard - {{ title }}</title>
+    {% else %}
+        <title>Dashboard</title>
+    {% endif %}
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-0 p-0 m-0">
+                <header class="mb-0">
+                    <nav class="navbar">
+                        <div class="name-time no-gutter">
+                            <div class="name-navbar navbar-brand p-0 m-0">
+                                <p class='navbar-name-stream'>Mestum Analytics</p>
+                            </div>
+                            <div class="time-navbar navbar-brand p-0 m-0">
+                            </div>
+                        </div>
+                        <div class="navbar-nav">
+                            <a class="nav-item nav-link" href="#"><img src="../../static/ava.png" alt="test" width="40" height='40' style="border-radius:50%;"></a>
+                        </div>
+                    </nav>
+                </header>
+            </div>
+        </div>
+    </div>
+    
+    {% block content %}
+    {% endblock %}
+   
+    <script>
+        var ctx = document.getElementById('chartOnline').getContext('2d');
+        var data = {{ plot_online_data | safe}}
+        var labels = {{ plot_online_label | safe}}
+
+        var labels2 = labels.map(date => new Date(date))
+        var options = {
+                        //year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        //weekday: 'long',
+                        hour: 'numeric',
+                        minute: 'numeric',
+                };
+        var converted_done = labels2.map(data => data.toLocaleDateString("ru", options))
+
+        ctx.canvas.width = 700;
+        ctx.canvas.height = 390;
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: converted_done,
+                datasets: [{
+                    backgroundColor:'rgba(0,99,132,0.2)',
+                    borderColor:'black',
+                    data:data,
+                    pointRadius:5,
+                    pointHitRadius:10,
+                    pointBackgroundColor:'red',
+                    fill:true,
+                }] 
+            },
+            options: {
+                layout: {
+                    padding: {
+                        bottom:30
+                    }
+                },
+                tension:0.4,
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: false,
+                plugins:{
+                    legend:{
+                        display:false
+                    }
+                },
+                scales:{
+                    x:{
+                        grid: {
+                            display: false
+                            }, 
+                    },
+                    y:{
+                        grid: {
+                            display: true
+                            },
+                        min:0,
+                        ticks:{
+                            stepSize:1
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx = document.getElementById('chartOffline').getContext('2d');
+        var data = {{ plot_offline_data | safe}}
+        var labels = {{ plot_offline_label | safe}}
+
+        var labels2 = labels.map(date => new Date(date))
+        var options = {
+                        //year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        //weekday: 'long',
+                        hour: 'numeric',
+                        minute: 'numeric',
+                };
+        var converted_done = labels2.map(data => data.toLocaleDateString("ru", options))
+
+        ctx.canvas.width = 700;
+        ctx.canvas.height = 300;
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: converted_done,
+                datasets: [{
+                    backgroundColor:'rgba(0,99,132,0.2)',
+                    borderColor:'black',
+                    data:data,
+                    pointRadius:5,
+                    pointHitRadius:10,
+                    pointBackgroundColor:'red',
+                    fill:true,
+                }] 
+            },
+            options: {
+                layout: {
+                    padding: {
+                        bottom:30
+                    }
+                },
+                tension:0.4,
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins:{
+                    legend:{
+                        display:false
+                    }
+                },
+                scales:{
+                    x:{
+                        grid: {
+                            display: false
+                            }, 
+                    },
+                    y:{
+                        grid: {
+                            display: true
+                            },
+                        min:0,
+                        ticks:{
+                            stepSize:1
+                        }
+                    }
+                 }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx = document.getElementById('chartUniqueOnline').getContext('2d');
+        var data = {{ unique_data | safe }}
+        var labels = {{ unique_labels | safe }}
+
+        var labels2 = labels.map(date => new Date(date))
+        var options = {
+                        //year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        //weekday: 'long',
+                        hour: 'numeric',
+                        minute: 'numeric',
+                };
+        var converted_done = labels2.map(data => data.toLocaleDateString("ru", options))
+
+        ctx.canvas.width = 700;
+        ctx.canvas.height = 300;
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: converted_done,
+                datasets: [{
+                    backgroundColor:'rgba(0,99,132,0.2)',
+                    borderColor:'black',
+                    data:data,
+                    pointRadius:5,
+                    pointHitRadius:10,
+                    pointBackgroundColor:'red',
+                    fill:true,
+                }] 
+            },
+            options: {
+                layout: {
+                    padding: {
+                        bottom:30
+                    }
+                },
+                tension:0.4,
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins:{
+                    legend:{
+                        display:false
+                    }
+                },
+                scales:{
+                    x:{
+                        grid: {
+                            display: false
+                            }, 
+                    },
+                    y:{
+                        grid: {
+                            display: true
+                            },
+                        min:0,
+                        ticks:{
+                            stepSize:1
+                        }
+                    }
+                 }
+            }
+        });
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../static/js/updating_mainpage.js"></script>
+</body>
+</html>

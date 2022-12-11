@@ -1,0 +1,85 @@
+{% extends 'event_layout.html' %}
+{% block content %}
+
+    <div class='backgrd'>    
+        <div class="div-left" id="outer-child-left">
+        </div>
+
+        <div class="div-outer px-0 py-0">
+            <!--
+            <div class="div-left" id="outer-child-left">
+            </div>
+            -->
+
+            <div class="div-right" id="outer-child-right">
+                <div class="down">
+                    <div class="total-figure" id="allfigures">
+                        <div class="lineone">
+                            <div class="boxchart1">
+                                <div class='text-plot1'>
+                                    <div class="paragraph-chart11">
+                                            <li class="paragraph-chart-watch">Смотрят: </li>
+                                            <li class="paragraph_chart_watch_backend" id="paragraph_chart_watch_backend">{{ watch }}</li>
+                                    </div>
+                                </div>
+                                <div class="figOne">
+                                    <canvas class="chartOnline" id="chartOnline"></canvas>
+                                </div>
+                            </div>  
+                        </div> 
+                        <div class="linetwo">
+                                <div class="boxchart3">
+                                    <div class="paragraph-chart2">
+                                        <li class="paragraph-chart-pause">Уникальные юзеры: </li>
+                                        <li class="paragraph_chart_unique_backend" id="paragraph_chart_unique_backend">{{ sum_unique }}</li>
+                                    </div>
+                                    <div class="figThree boxchart">
+                                        <canvas class='chartUniqueOnline' id="chartUniqueOnline" ></canvas>
+                                    </div>
+                                </div>
+
+
+                                <div class="boxchart4">
+                                    <div class="paragraph-chart2">
+                                        <li class="paragraph-chart-pause">На паузе: </li>
+                                        <li class="paragraph_chart_pause_backend" id="paragraph_chart_pause_backend">{{ pause }}</li>
+                                    </div>
+                                    <div class="figThree boxchart">
+                                        <canvas class='chartOffline' id="chartOffline" ></canvas>
+                                    </div>
+                                </div>
+
+                        </div>  
+                    </div>
+                </div>
+                
+
+                <div class="containertable" id='containertable'>
+                    <div class="content">
+                        <ul>
+                            <div class="title", id='scrolling'>
+                                <li class="alignheader lione">Название</li>
+                                <li class="alignheader litwo">Смотрят</li>
+                                <li class="alignheader lithree">Среднее длительность</li>
+                            </div>
+            
+                            {% for datav in alldata.values %}
+                            <a href="/stat/{{id}}/session/{{datav[0]}}" id="undata-link">
+                                <div class="undata", id='scrolling'>
+                                    <li class="aligncontenttable1 datalione"><span class='col1'><img src="../../static/test.png" class='imgtable' alt="test" width="100" height=80%></span><span class="col1-2">Сессионный зал: {{ datav[0] }}</span></li>
+                                    <li class="aligncontenttable2 datalitwo"><span>{{ datav[1] }}</span></li>
+                                    <li class="aligncontenttable3 lithree"><span>{{ datav[2] }}</span></li>
+                                </div>
+                                </a>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+        
+
+
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

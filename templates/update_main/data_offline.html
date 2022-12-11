@@ -1,0 +1,72 @@
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <canvas class='chartOffline' id="chartOffline" ></canvas>
+
+
+    <script>
+        var ctx = document.getElementById('chartOffline').getContext('2d');
+        var data = {{ plot_offline_data | safe}}
+        var labels = {{ plot_offline_label | safe}}
+
+        var labels2 = labels.map(date => new Date(date))
+        var options = {
+                        //year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        //weekday: 'long',
+                        hour: 'numeric',
+                        minute: 'numeric',
+                };
+        var converted_done = labels2.map(data => data.toLocaleDateString("ru", options))
+
+        ctx.canvas.width = 700;
+        ctx.canvas.height = 300;
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: converted_done,
+                datasets: [{
+                    backgroundColor:'rgba(0,99,132,0.2)',
+                    borderColor:'black',
+                    data:data,
+                    pointRadius:5,
+                    pointHitRadius:10,
+                    pointBackgroundColor:'red',
+                    fill:true,
+                }] 
+            },
+            options: {
+                layout: {
+                    padding: {
+                        bottom:30
+                    }
+                },
+                tension:0.4,
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: false,
+                plugins:{
+                    legend:{
+                        display:false
+                    }
+                },
+                scales:{
+                    x:{
+                        grid: {
+                            display: false
+                            }, 
+                    },
+                    y:{
+                        grid: {
+                            display: true
+                            },
+                        min:0,
+                        ticks:{
+                            stepSize:1
+                        }
+                    }
+                 }
+            }
+        });
+    </script>

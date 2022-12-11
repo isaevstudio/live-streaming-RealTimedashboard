@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="div-outer px-0 py-0">
+        <div class="div-left2" id="outer-child-left2">
+        </div>
+        <div class="div-inner-leftandright">
+            <div class="div-left" id="outer-child-left">
+                <div class="down">
+
+                    <select [(ngModel)]="lessThanOrGreaterThan" style="width: 150px;height: 30px;">
+                        <option value='hour' selected>Hour</option>
+                        <option value='day'>Day</option>
+                        <option value='month'>Month</option>
+                      </select>&nbsp;&nbsp;
+
+                    <div class="total-figure py-0" id="allfigures">
+                        <div class="boxchart1">
+                            <div class='boxchart1text'>
+                                <div class="paragraph-chart1">
+                                    <li class="paragraph-chart-watch">Смотрят: </li>
+                                    <li class="paragraph_chart_watch_backend" id="paragraph_chart_watch_backend">{{ watch }}</li>
+                                </div>
+                                <div class="paragraph-chart1">
+                                    <li class="paragraph-chart-watch">Пиковое количество: </li>
+                                    <li class="paragraph_chart_peak_backend" id="paragraph_chart_peak_backend">{{ peak_data }}</li>
+                                </div>
+                                <div class="paragraph-chart11">
+                                    <li class="paragraph-chart-watch">Уникальных зрителей: </li>
+                                    <li class="paragraph_chart_unique_backend2" id="paragraph_chart_unique_backend2">{{ sum_unique }}</li>
+                                </div>
+                            </div>
+                            <div class="figOne">
+                                <canvas class="chartOnline" id="chartOnline"></canvas>
+                            </div>
+                        </div>
+                        <div class='twosmallerplots'>
+                            <div class="boxchart2">
+                                <div class="paragraph-chart2">
+                                    <li class="paragraph-chart-pause">На паузе: </li>
+                                    <li class="paragraph_chart_pause_backend" id="paragraph_chart_pause_backend">{{ pause }}</li>
+                                </div>
+                                <div class="figTwo boxchart">
+                                    <canvas class='chartOffline' id="chartOffline" ></canvas>
+                                </div>
+                            </div>
+                            <div class="boxchart3">
+                                <div class="paragraph-chart3">
+                                    <li class="paragraph-chart-pause">Уникальных зрителей: </li>
+                                    <li class="paragraph_chart_unique_backend" id="paragraph_chart_unique_backend">{{ sum_unique }}</li>
+                                </div>
+                                <div class="figThree boxchart">
+                                    <canvas class='chartUniqueOnline' id="chartUniqueOnline" ></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='cards'>
+                            <div class="box1 card_avd_time" id="card_avd_time">                            
+                                <h3 id="text_card1">{{ avd }} мин.</h3>
+                                <h5 id="text_card2">Средняя продолжительность просмотра</h5>
+                            </div>
+                            <div class="box2 card_prct_time" id="card_prct_time">
+                                <h3 id="text_card1">{{ avdprct }}%</h3>
+                                <h5 id="text_card2">Средний процент просмотра</h5>
+                            </div>
+                        <div> 
+                    </div>
+                </div>
+            </div> 
+        </div>    
+    </div>
+{% endblock %}
